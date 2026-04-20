@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started | Treetop Business Solutions</title>
+  <meta name="description" content="Get started with Treetop Business Solutions — tell us about your business and we'll reach out to schedule a conversation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── GET STARTED PAGE SPECIFIC ── */
+
+    .section-form {
+      background: var(--white);
+      padding: 80px 4% 100px;
+    }
+    .form-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .form-intro {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+      font-weight: 300;
+      margin-bottom: 52px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    /* Field groups */
+    .form-group {
+      margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.748rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .form-label-sub {
+      font-size: 0.748rem;
+      color: var(--text-mid);
+      font-weight: 300;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .form-required {
+      color: var(--gold);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      margin-left: 4px;
+      font-weight: 400;
+      text-transform: none;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 3px;
+      font-family: var(--sans);
+      font-size: 0.935rem;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(207,184,125,0.15);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Radio & Checkbox */
+    .form-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .form-options-inline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+    }
+    .form-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .form-option input[type="radio"],
+    .form-option input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid rgba(0,0,0,0.25);
+      border-radius: 2px;
+      background: var(--white);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .form-option input[type="radio"] {
+      border-radius: 50%;
+    }
+    .form-option input[type="checkbox"]:checked {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .form-option input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 6px;
+      height: 10px;
+      border: 2px solid white;
+      border-top: none;
+      border-left: none;
+      transform: rotate(40deg);
+    }
+    .form-option input[type="radio"]:checked {
+      border-color: var(--green);
+      background: var(--white);
+    }
+    .form-option input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+    .form-option-label {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    /* Services checkboxes — two column layout */
+    .form-services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 32px;
+    }
+
+    /* Section divider */
+    .form-section-title {
+      font-family: var(--serif);
+      font-size: 1.32rem;
+      font-weight: 400;
+      color: var(--green);
+      margin-bottom: 24px;
+      margin-top: 48px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(207,184,125,0.4);
+    }
+    .form-section-title:first-of-type { margin-top: 0; }
+
+    /* Submit */
+    .form-submit {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 60px 40px;
+    }
+    .form-success.visible { display: block; }
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--green);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .form-success-icon svg { color: var(--gold); }
+    .form-success h2 { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; color: var(--green); margin-bottom: 12px; }
+    .form-success h2 em { font-style: italic; }
+    .form-success p { font-size: 0.99rem; color: var(--text-mid); font-weight: 300; line-height: 1.8; max-width: 480px; margin: 0 auto 32px; }
+
+    /* Error state */
+    .form-error-msg {
+      display: none;
+      background: #fff3f3;
+      border: 1px solid #ffcdd2;
+      border-radius: 3px;
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      color: #c62828;
+      margin-bottom: 24px;
+    }
+    .form-error-msg.visible { display: block; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-services-grid { grid-template-columns: 1fr; }
+      .form-options-inline { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="get-started.html" class="nav-cta">Get Started</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="get-started.html" class="nav-cta">Get Started</a>
+  </div>
+
+  <section class="page-header">
+    <div class="page-header-inner">
+      <div class="page-eyebrow">
+        <div class="page-eyebrow-line"></div>
+        <span>Let's Talk</span>
+      </div>
+      <h1 class="page-title">
+        Get<br>
+        <em>Started.</em>
+      </h1>
+    </div>
+  </section>
+
+  <section class="section-form">
+    <div class="form-inner">
+
+      <p class="form-intro">Thank you for your interest in partnering with us. Please take a moment to ask any questions and help us understand your needs. We want to help you any way we can and give you peace of mind while doing it. You can see a full list of our services on our <a href="solutions.html" style="color:var(--green);font-weight:500;">Services page</a>. Once we receive your form submission, we will contact you to schedule an initial conversation. All information entered on this form is confidential.</p>
+
+      <div class="form-error-msg" id="form-error">Something went wrong sending your message. Please try again or email us directly at <a href="mailto:info@treetopbusiness.com">info@treetopbusiness.com</a>.</div>
+
+      <form id="contact-form" novalidate>
+
+        <!-- Contact Info -->
+        <div class="form-section-title">Contact Information</div>
+
+        <div class="form-group">
+          <label class="form-label">Name <span class="form-required">(required)</span></label>
+          <div class="form-row">
+            <div>
+              <input type="text" class="form-input" id="first-name" placeholder="First Name" required />
+            </div>
+            <div>
+              <input type="text" class="form-input" id="last-name" placeholder="Last Name" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company">Company Name <span class="form-required">(required)</span></label>
+          <input type="text" class="form-input" id="company" placeholder="Your business name" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email <span class="form-required">(required)</span></label>
+          <input type="email" class="form-input" id="email" placeholder="you@yourbusiness.com" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone <span class="form-required">(required)</span></label>
+          <input type="tel" class="form-input" id="phone" placeholder="(405) 000-0000" required />
+        </div>
+
+        <!-- Preferences -->
+        <div class="form-section-title">Your Preferences</div>
+
+        <div class="form-group">
+          <label class="form-label">Do you prefer email or phone? <span class="form-required">(required)</span></label>
+          <div class="form-options form-options-inline">
+            <label class="form-option">
+              <input type="radio" name="contact-pref" value="Email" required />
+              <span class="form-option-label">Email</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="contact-pref" value="Phone" />
+              <span class="form-option-label">Phone</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">When is the best time to reach you? <span class="form-required">(required)</span></label>
+          <span class="form-label-sub">Select all that apply</span>
+          <div class="form-options form-options-inline">
+            <label class="form-option"><input type="checkbox" name="best-time" value="Weekdays" /><span class="form-option-label">Weekdays</span></label>
+            <label class="form-option"><input type="checkbox" name="best-time" value="Weekends" /><span class="form-option-label">Weekends</span></label>
+            <label class="form-option"><input type="checkbox" name="best-time" value="Morning" /><span class="form-option-label">Morning</span></label>
+            <label class="form-option"><input type="checkbox" name="best-time" value="Lunch" /><span class="form-option-label">Lunch</span></label>
+            <label class="form-option"><input type="checkbox" name="best-time" value="Afternoon" /><span class="form-option-label">Afternoon</span></label>
+            <label class="form-option"><input type="checkbox" name="best-time" value="Evening" /><span class="form-option-label">Evening</span></label>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="form-section-title">Services</div>
+
+        <div class="form-group">
+          <label class="form-label">What services are you interested in? <span class="form-required">(required)</span></label>
+          <span class="form-label-sub">Select all that apply</span>
+          <div class="form-services-grid">
+            <label class="form-option"><input type="checkbox" name="services" value="QuickBooks Online Bookkeeping" /><span class="form-option-label">QuickBooks Online Bookkeeping</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Financial Statements (Monthly/Quarterly/Annual)" /><span class="form-option-label">Financial Statements (Monthly/Quarterly/Annual)</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Accounts Receivable / Invoicing" /><span class="form-option-label">Accounts Receivable / Invoicing</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Accounts Payable" /><span class="form-option-label">Accounts Payable</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Tax Filing" /><span class="form-option-label">Tax Filing</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Tax Payments" /><span class="form-option-label">Tax Payments</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Payroll Services" /><span class="form-option-label">Payroll Services</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Consulting: Accounting System Implementation" /><span class="form-option-label">Consulting: Accounting System Implementation</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Consulting: Payroll System Implementation" /><span class="form-option-label">Consulting: Payroll System Implementation</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Consulting: New Business Startup" /><span class="form-option-label">Consulting: New Business Startup</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Consulting: QuickBooks" /><span class="form-option-label">Consulting: QuickBooks</span></label>
+            <label class="form-option"><input type="checkbox" name="services" value="Website Design / Consultation" /><span class="form-option-label">Website Design / Consultation</span></label>
+          </div>
+        </div>
+
+        <!-- Comments -->
+        <div class="form-section-title">Additional Information</div>
+
+        <div class="form-group">
+          <label class="form-label" for="comments">Do you have additional comments or questions?</label>
+          <textarea class="form-textarea" id="comments" placeholder="Tell us anything else that would help us prepare for our conversation…" rows="5"></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary" id="submit-btn">Send Message</button>
+          <span class="form-note">We'll be in touch within 1–2 business days.</span>
+        </div>
+
+      </form>
+
+      <!-- Success state -->
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h2>Message <em>sent!</em></h2>
+        <p>Thank you for reaching out. We'll review your information and be in touch within 1–2 business days to schedule an initial conversation.</p>
+        <a href="index.html" class="btn-primary">Back to Home</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
+        </a>
+        <p>Your one-stop-shop for bookkeeping, tax preparation, consulting, and branding. Based in Oklahoma City. Another branch of your business.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="get-started.html">Get Started</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="solutions.html">Bookkeeping</a></li>
+          <li><a href="solutions.html">Tax Preparation</a></li>
+          <li><a href="solutions.html">Consulting</a></li>
+          <li><a href="solutions.html">Sales Tax</a></li>
+          <li><a href="solutions.html">Web &amp; Branding</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          <span>Oklahoma City, OK 73142</span>
+          <a href="tel:4055093330">(405) 509-3330</a>
+          <a href="mailto:info@treetopbusiness.com">info@treetopbusiness.com</a>
+        </address>
+      </div>
+      <div class="footer-col">
+        <h4>Accreditation</h4>
+        <a href="https://www.bbb.org/us/ok/oklahoma-city/profile/bookkeeping-services/treetop-business-solutions-llc-0995-90110137/#sealclick" target="_blank" rel="nofollow">
+          <img src="https://seal-oklahomacity.bbb.org/seals/darkgray-seal-250-52-bbb-90110137.png" alt="Treetop Business Solutions BBB Business Review" class="footer-bbb-seal" />
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Treetop Business Solutions is not a licensed CPA firm but is affiliated with Boas CPA, PLLC, a licensed Oklahoma CPA firm. Treetop Business Solutions, LLC is fully insured. © 2025 TREETOP BUSINESS SOLUTIONS, LLC.</p>
+      <p>Created by <a href="https://thirtythreevisuals.com" target="_blank">thirtythree visuals</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+    // Form submission via Formspree
+    // Replace YOUR_FORM_ID below with your Formspree form ID after creating a free account at formspree.io
+    const FORMSPREE_ID = 'YOUR_FORM_ID';
+
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submit-btn');
+      const errorEl = document.getElementById('form-error');
+      errorEl.classList.remove('visible');
+      btn.textContent = 'Sending…';
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+
+      // Collect values
+      const firstName   = document.getElementById('first-name').value.trim();
+      const lastName    = document.getElementById('last-name').value.trim();
+      const company     = document.getElementById('company').value.trim();
+      const email       = document.getElementById('email').value.trim();
+      const phone       = document.getElementById('phone').value.trim();
+      const contactPref = document.querySelector('input[name="contact-pref"]:checked')?.value || '';
+      const bestTimes   = [...document.querySelectorAll('input[name="best-time"]:checked')].map(i => i.value).join(', ');
+      const services    = [...document.querySelectorAll('input[name="services"]:checked')].map(i => i.value).join(', ');
+      const comments    = document.getElementById('comments').value.trim();
+
+      // Basic validation
+      if (!firstName || !lastName || !company || !email || !phone || !contactPref) {
+        errorEl.textContent = 'Please fill in all required fields.';
+        errorEl.classList.add('visible');
+        btn.textContent = 'Send Message';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+        return;
+      }
+
+      const data = {
+        name: `${firstName} ${lastName}`,
+        company, email, phone,
+        contact_preference: contactPref,
+        best_times: bestTimes || 'Not specified',
+        services_interested: services || 'Not specified',
+        comments: comments || 'None'
+      };
+
+      try {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (res.ok) {
+          document.getElementById('contact-form').style.display = 'none';
+          document.getElementById('form-success').classList.add('visible');
+          window.scrollTo({ top: document.getElementById('form-success').offsetTop - 140, behavior: 'smooth' });
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        errorEl.textContent = 'Something went wrong. Please try again or email us directly at info@treetopbusiness.com.';
+        errorEl.classList.add('visible');
+        btn.textContent = 'Send Message';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
