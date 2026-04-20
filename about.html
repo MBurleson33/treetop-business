@@ -55,6 +55,18 @@
     }
     .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
     .team-photo { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; position: relative; }
+    .photo-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      background: rgba(255,255,255,0.92);
+      border-radius: 6px;
+      padding: 5px 7px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .photo-badge img { height: 28px; width: auto; display: block; }
     .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(10%); transition: filter 0.4s, transform 0.4s; }
     .team-card:hover .team-photo img { filter: grayscale(0%); transform: scale(1.03); }
     .team-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%); }
@@ -65,8 +77,7 @@
     .team-card-hint { font-size: 0.68rem; color: var(--gold); margin-top: 8px; letter-spacing: 0.08em; }
 
     /* Badges on card */
-    .team-badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-    .team-badges img { height: 18px; width: auto; }
+
     .team-badge img { height: 15px; width: auto; }
 
     /* CTA */
@@ -261,13 +272,11 @@
         <div class="team-card reveal reveal-delay-1" onclick="openModal('jessica')">
           <div class="team-photo">
             <img src="images/Jess - New.jpg" alt="Jessica Burleson" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>JB</span></div>'" />
+            <div class="photo-badge"><img src="images/Pro-Advisor Platinum.png" alt="QuickBooks ProAdvisor Platinum" /></div>
           </div>
           <div class="team-info">
             <div class="team-name">Jessica Burleson</div>
-            <div class="team-role">Bookkeeper</div>
-            <div class="team-badges">
-              <img src="images/Pro-Advisor Platinum.png" alt="QuickBooks ProAdvisor Platinum" title="QuickBooks ProAdvisor Platinum" />
-            </div>
+            <div class="team-role">Owner / Bookkeeper</div>
             <div class="team-card-hint">Click to learn more →</div>
           </div>
         </div>
@@ -275,13 +284,11 @@
         <div class="team-card reveal reveal-delay-2" onclick="openModal('lauren')">
           <div class="team-photo">
             <img src="images/Lauren - New.jpg" alt="Lauren Doré" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>LD</span></div>'" />
+            <div class="photo-badge"><img src="images/Pro-Advisor.png" alt="QuickBooks ProAdvisor" /></div>
           </div>
           <div class="team-info">
             <div class="team-name">Lauren Doré</div>
             <div class="team-role">Bookkeeper</div>
-            <div class="team-badges">
-              <img src="images/Pro-Advisor.png" alt="QuickBooks ProAdvisor" title="QuickBooks ProAdvisor" />
-            </div>
             <div class="team-card-hint">Click to learn more →</div>
           </div>
         </div>
@@ -384,7 +391,7 @@
     const team = {
       jessica: {
         name: 'Jessica Burleson',
-        role: 'Bookkeeper',
+        role: 'Owner / Bookkeeper',
         photo: 'images/Jess - New.jpg',
         initials: 'JB',
         badges: ['images/Pro-Advisor Platinum.png'],
