@@ -35,7 +35,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 0 4%;
   height: 110px;
   background: transparent;
   transition: background 0.4s, box-shadow 0.4s;
@@ -136,7 +136,7 @@ nav.solid {
 /* ── PAGE HEADER (inner pages) ── */
 .page-header {
   background: var(--green);
-  padding: 160px 5% 80px;
+  padding: 160px 4% 80px;
   position: relative;
   overflow: hidden;
 }
@@ -268,10 +268,10 @@ nav.solid {
 /* ── FOOTER ── */
 footer {
   background: var(--green);
-  padding: 64px 5% 32px;
+  padding: 64px 4% 32px;
 }
 .footer-top {
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
@@ -334,7 +334,7 @@ footer {
 }
 .footer-col a:has(.footer-bbb-seal):hover .footer-bbb-seal { opacity: 1; }
 .footer-bottom {
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   align-items: center;
