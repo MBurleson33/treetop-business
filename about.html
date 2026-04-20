@@ -8,209 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── TOKENS ── */
-    :root {
-      --green:     #0A2922;
-      --green-mid: #0d3830;
-      --gold:      #CFB87D;
-      --gold-light:#e2d0a2;
-      --white:     #FFFFFF;
-      --cream:     #F8F5EF;
-      --text:      #1a1a1a;
-      --text-mid:  #4a4a4a;
-      --serif:     'Cormorant Garamond', Georgia, serif;
-      --sans:      'Jost', sans-serif;
-    }
+    /* ── ABOUT PAGE SPECIFIC ── */
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      color: var(--text);
-      background: var(--white);
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 72px;
-      background: var(--green);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.2);
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .nav-logo-icon { width: 40px; height: 40px; opacity: 0.95; }
-    .nav-logo-text { display: flex; flex-direction: column; }
-    .nav-logo-name {
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      color: var(--white);
-      line-height: 1;
-    }
-    .nav-logo-sub {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-top: 3px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--gold); }
-    .nav-cta {
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--green) !important;
-      background: var(--gold);
-      padding: 10px 22px;
-      border-radius: 2px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.2s, transform 0.2s !important;
-    }
-    .nav-cta:hover {
-      background: var(--gold-light) !important;
-      transform: translateY(-1px);
-    }
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-    .nav-hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--white); transition: 0.3s;
-    }
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 72px; left: 0; right: 0;
-      background: var(--green);
-      padding: 24px 5% 32px;
-      z-index: 99;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-    }
-    .mobile-menu .nav-cta { display: inline-block; margin-top: 8px; text-align: center; }
-
-    /* ── PAGE HEADER ── */
-    .page-header {
-      background: var(--green);
-      padding: 140px 5% 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .page-header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 90% 50%, rgba(207,184,125,0.07) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .page-header::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-    .page-header-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .page-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
-    }
-    .page-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
-    .page-eyebrow span {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-    }
-    .page-title {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 5vw, 4.4rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.1;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.35s forwards;
-    }
-    .page-title em { font-style: italic; color: var(--gold); }
-
-    /* ── SECTION HELPERS ── */
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-    .section-label-line { width: 30px; height: 1px; background: var(--gold); }
-    .section-label span {
-      font-size: 0.62rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-    }
-
-    /* ── ORIGIN STORY ── */
-    .section-story {
-      background: var(--white);
-      padding: 100px 5%;
-    }
+    /* Story section */
+    .section-story { background: var(--white); padding: 100px 5%; }
     .story-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -221,22 +24,14 @@
     }
     .story-left h2 {
       font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-size: clamp(2.2rem, 3.3vw, 3.08rem);
       font-weight: 300;
       color: var(--green);
       line-height: 1.2;
       margin-bottom: 28px;
     }
     .story-left h2 em { font-style: italic; }
-    .story-left p {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: var(--text-mid);
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-
-    /* Faith callout */
+    .story-left p { font-size: 1.045rem; line-height: 1.9; color: var(--text-mid); font-weight: 300; margin-bottom: 20px; }
     .faith-callout {
       margin-top: 36px;
       padding: 28px 32px;
@@ -246,22 +41,14 @@
     }
     .faith-callout p {
       font-family: var(--serif);
-      font-size: 1.15rem;
+      font-size: 1.265rem;
       font-style: italic;
       color: var(--green);
       line-height: 1.65;
       font-weight: 400;
       margin: 0;
     }
-
-    /* Commitment block */
-    .story-right {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: sticky;
-      top: 100px;
-    }
+    .story-right { display: flex; flex-direction: column; gap: 0; position: sticky; top: 120px; }
     .commitment-block {
       padding: 32px;
       border: 1px solid rgba(0,0,0,0.07);
@@ -270,64 +57,20 @@
       background: var(--cream);
       transition: box-shadow 0.3s;
     }
-    .commitment-block:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
-    }
-    .commitment-num {
-      font-family: var(--serif);
-      font-size: 2rem;
-      color: var(--gold);
-      opacity: 0.5;
-      line-height: 1;
-      margin-bottom: 10px;
-      font-style: italic;
-    }
-    .commitment-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--green);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .commitment-body {
-      font-size: 0.85rem;
-      line-height: 1.75;
-      color: var(--text-mid);
-      font-weight: 300;
-    }
+    .commitment-block:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+    .commitment-num { font-family: var(--serif); font-size: 2.2rem; color: var(--gold); opacity: 0.5; line-height: 1; margin-bottom: 10px; font-style: italic; }
+    .commitment-title { font-size: 0.792rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 8px; }
+    .commitment-body { font-size: 0.935rem; line-height: 1.75; color: var(--text-mid); font-weight: 300; }
 
-    /* ── TEAM ── */
-    .section-team {
-      background: var(--white);
-      padding: 100px 5%;
-    }
-    .team-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .team-header {
-      margin-bottom: 60px;
-    }
-    .team-header h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      font-weight: 300;
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
+    /* Team section */
+    .section-team { background: var(--white); padding: 100px 5%; }
+    .team-inner { max-width: 1100px; margin: 0 auto; }
+    .team-header { margin-bottom: 60px; }
+    .team-header h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.3vw, 3.08rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 12px; }
     .team-header h2 em { font-style: italic; }
-    .team-header p {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      font-weight: 300;
-      max-width: 500px;
-    }
-
-    /* Group label */
+    .team-header p { font-size: 0.99rem; color: var(--text-mid); font-weight: 300; max-width: 500px; }
     .team-group-label {
-      font-size: 0.6rem;
+      font-size: 0.66rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--gold);
@@ -337,24 +80,9 @@
       align-items: center;
       gap: 14px;
     }
-    .team-group-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(207,184,125,0.5);
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-    .team-grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 520px;
-    }
-
+    .team-group-label::after { content: ''; flex: 1; height: 1px; background: rgba(207,184,125,0.5); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+    .team-grid-single { grid-template-columns: repeat(1, 280px); }
     .team-card {
       background: var(--cream);
       border-radius: 4px;
@@ -362,31 +90,10 @@
       border: 1px solid rgba(0,0,0,0.06);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .team-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
-    }
-    .team-photo {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: var(--green-mid);
-      overflow: hidden;
-      position: relative;
-    }
-    .team-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      filter: grayscale(15%);
-      transition: filter 0.4s, transform 0.4s;
-    }
-    .team-card:hover .team-photo img {
-      filter: grayscale(0%);
-      transform: scale(1.03);
-    }
-    /* Placeholder when no image */
+    .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+    .team-photo { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; position: relative; }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%); transition: filter 0.4s, transform 0.4s; }
+    .team-card:hover .team-photo img { filter: grayscale(0%); transform: scale(1.03); }
     .team-photo-placeholder {
       width: 100%;
       height: 100%;
@@ -395,207 +102,35 @@
       justify-content: center;
       background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
     }
-    .team-photo-placeholder span {
-      font-family: var(--serif);
-      font-size: 3rem;
-      font-weight: 300;
-      color: rgba(207,184,125,0.4);
-      font-style: italic;
-    }
+    .team-photo-placeholder span { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: rgba(207,184,125,0.4); font-style: italic; }
+    .team-info { padding: 20px 22px 24px; border-top: 2px solid var(--gold); }
+    .team-name { font-family: var(--serif); font-size: 1.32rem; font-weight: 500; color: var(--green); margin-bottom: 4px; }
+    .team-role { font-size: 0.748rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mid); font-weight: 400; }
 
-    .team-info {
-      padding: 20px 22px 24px;
-      border-top: 2px solid var(--gold);
-    }
-    .team-name {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--green);
-      margin-bottom: 4px;
-    }
-    .team-role {
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      font-weight: 400;
-    }
-
-    /* ── CTA STRIP ── */
-    .section-cta {
-      background: var(--cream);
-      padding: 80px 5%;
-      text-align: center;
-    }
+    /* CTA */
+    .section-cta { background: var(--cream); padding: 80px 5%; text-align: center; }
     .section-cta-inner { max-width: 600px; margin: 0 auto; }
-    .cta-headline {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
+    .cta-headline { font-family: var(--serif); font-size: clamp(2.2rem, 3.85vw, 3.08rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 16px; }
     .cta-headline em { font-style: italic; color: var(--gold); }
-    .cta-body {
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-      font-weight: 300;
-      margin-bottom: 36px;
-    }
-    .btn-primary {
-      display: inline-block;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--green);
-      background: var(--gold);
-      padding: 16px 36px;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(207,184,125,0.25);
-    }
+    .cta-body { font-size: 0.99rem; line-height: 1.8; color: var(--text-mid); font-weight: 300; margin-bottom: 36px; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--green);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 64px 5% 32px;
-    }
-    .footer-top {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-      gap: 60px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 32px;
-    }
-    .footer-brand p {
-      font-size: 0.83rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.45);
-      font-weight: 300;
-      margin-top: 16px;
-      max-width: 280px;
-    }
-    .footer-col h4 {
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-      margin-bottom: 18px;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      font-weight: 300;
-      transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: var(--gold); }
-    .footer-col address {
-      font-style: normal;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-col address a, .footer-col address span {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      font-weight: 300;
-      transition: color 0.2s;
-    }
-    .footer-col address a:hover { color: var(--gold); }
-    .footer-bbb-seal {
-      height: 52px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.6;
-      transition: opacity 0.2s;
-      margin-top: 4px;
-    }
-    .footer-col a:hover .footer-bbb-seal { opacity: 0.9; }
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-bottom p {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.3);
-      font-weight: 300;
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--gold); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ── RESPONSIVE ── */
+    /* Responsive */
     @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
       .story-inner { grid-template-columns: 1fr; }
       .story-right { position: static; }
       .team-grid { grid-template-columns: 1fr 1fr; }
-      .team-grid-2 { grid-template-columns: 1fr 1fr; max-width: 100%; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
+      .team-grid-single { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
+  <nav class="solid">
     <a href="index.html" class="nav-logo">
-      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="40" cy="40" r="38" stroke="rgba(207,184,125,0.3)" stroke-width="1"/>
-        <rect x="37" y="52" width="6" height="16" rx="1" fill="rgba(207,184,125,0.7)"/>
-        <circle cx="40" cy="32" r="18" fill="rgba(207,184,125,0.15)" stroke="rgba(207,184,125,0.5)" stroke-width="1"/>
-        <circle cx="40" cy="28" r="12" fill="rgba(207,184,125,0.25)"/>
-        <circle cx="30" cy="36" r="9" fill="rgba(207,184,125,0.2)"/>
-        <circle cx="50" cy="36" r="9" fill="rgba(207,184,125,0.2)"/>
-        <circle cx="40" cy="20" r="8" fill="rgba(207,184,125,0.3)"/>
-      </svg>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">TREETOP</span>
-        <span class="nav-logo-sub">Business Solutions</span>
-      </div>
+      <img src="images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -632,27 +167,19 @@
   <!-- ORIGIN STORY -->
   <section class="section-story">
     <div class="story-inner">
-
       <div class="story-left reveal">
         <div class="section-label">
           <div class="section-label-line"></div>
           <span>How We Started</span>
         </div>
         <h2>Born from a<br><em>simple desire.</em></h2>
-        <p>
-          Treetop Business Solutions was born from a simple desire — to help people succeed at what they do best. After seeing several incredibly talented friends pour their hearts into starting businesses, only to watch them close because they didn't have support in areas like financial record keeping, we knew there was a gap we could fill.
-        </p>
-        <p>
-          We realized that many small business owners were trying to do it all, and it was costing them their dreams. That's when we decided to step in and do what we love: help others grow by handling the behind-the-scenes work that can make or break a business.
-        </p>
-        <p>
-          Treetop is more than a business to us — it's a passion project rooted in the belief that with the right support, every great idea has a chance to thrive.
-        </p>
+        <p>Treetop Business Solutions was born from a simple desire — to help people succeed at what they do best. After seeing several incredibly talented friends pour their hearts into starting businesses, only to watch them close because they didn't have support in areas like financial record keeping, we knew there was a gap we could fill.</p>
+        <p>We realized that many small business owners were trying to do it all, and it was costing them their dreams. That's when we decided to step in and do what we love: help others grow by handling the behind-the-scenes work that can make or break a business.</p>
+        <p>Treetop is more than a business to us — it's a passion project rooted in the belief that with the right support, every great idea has a chance to thrive.</p>
         <div class="faith-callout">
           <p>"Everyone at Treetop has a personal relationship with Jesus Christ. Our desire is to glorify Him in all we do."</p>
         </div>
       </div>
-
       <div class="story-right reveal reveal-delay-1">
         <div class="commitment-block">
           <div class="commitment-num">01</div>
@@ -675,7 +202,6 @@
           <p class="commitment-body">Faith-driven in everything we do. We show up with honesty, humility, and a genuine desire to serve well.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -691,58 +217,41 @@
         <p>A small, dedicated team with big care for the businesses they serve.</p>
       </div>
 
-      <!-- Bookkeepers -->
       <div class="team-group-label reveal">Bookkeepers</div>
       <div class="team-grid reveal">
-
         <div class="team-card reveal reveal-delay-1">
-          <div class="team-photo">
-            <div class="team-photo-placeholder"><span>JB</span></div>
-          </div>
+          <div class="team-photo"><div class="team-photo-placeholder"><span>JB</span></div></div>
           <div class="team-info">
             <div class="team-name">Jessica Burleson</div>
             <div class="team-role">Bookkeeper</div>
           </div>
         </div>
-
         <div class="team-card reveal reveal-delay-2">
-          <div class="team-photo">
-            <div class="team-photo-placeholder"><span>LD</span></div>
-          </div>
+          <div class="team-photo"><div class="team-photo-placeholder"><span>LD</span></div></div>
           <div class="team-info">
             <div class="team-name">Lauren Doré</div>
             <div class="team-role">Bookkeeper</div>
           </div>
         </div>
-
         <div class="team-card reveal reveal-delay-3">
-          <div class="team-photo">
-            <div class="team-photo-placeholder"><span>NS</span></div>
-          </div>
+          <div class="team-photo"><div class="team-photo-placeholder"><span>NS</span></div></div>
           <div class="team-info">
             <div class="team-name">Naomi Smith</div>
             <div class="team-role">Bookkeeper</div>
           </div>
         </div>
-
       </div>
 
-      <!-- thirtythree visuals -->
       <div class="team-group-label reveal">thirtythree visuals</div>
-      <div class="team-grid team-grid-2 reveal">
-
+      <div class="team-grid team-grid-single reveal">
         <div class="team-card reveal reveal-delay-1">
-          <div class="team-photo">
-            <div class="team-photo-placeholder"><span>MB</span></div>
-          </div>
+          <div class="team-photo"><div class="team-photo-placeholder"><span>MB</span></div></div>
           <div class="team-info">
             <div class="team-name">Matt Burleson</div>
             <div class="team-role">Web &amp; Brand Design</div>
           </div>
         </div>
-
       </div>
-
     </div>
   </section>
 
@@ -750,12 +259,9 @@
   <section class="section-cta">
     <div class="section-cta-inner reveal">
       <h2 class="cta-headline">
-        Ready to work with a team<br>
-        that <em>cares?</em>
+        Ready to work with a team<br>that <em>cares?</em>
       </h2>
-      <p class="cta-body">
-        Tell us about your business. We'll reach out to schedule a free initial conversation.
-      </p>
+      <p class="cta-body">Tell us about your business. We'll reach out to schedule a free initial conversation.</p>
       <a href="get-started.html" class="btn-primary">Get Started</a>
     </div>
   </section>
@@ -765,19 +271,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">
-          <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="40" r="38" stroke="rgba(207,184,125,0.3)" stroke-width="1"/>
-            <rect x="37" y="52" width="6" height="16" rx="1" fill="rgba(207,184,125,0.7)"/>
-            <circle cx="40" cy="32" r="18" fill="rgba(207,184,125,0.15)" stroke="rgba(207,184,125,0.5)" stroke-width="1"/>
-            <circle cx="40" cy="28" r="12" fill="rgba(207,184,125,0.25)"/>
-            <circle cx="30" cy="36" r="9" fill="rgba(207,184,125,0.2)"/>
-            <circle cx="50" cy="36" r="9" fill="rgba(207,184,125,0.2)"/>
-            <circle cx="40" cy="20" r="8" fill="rgba(207,184,125,0.3)"/>
-          </svg>
-          <div class="nav-logo-text">
-            <span class="nav-logo-name">TREETOP</span>
-            <span class="nav-logo-sub">Business Solutions</span>
-          </div>
+          <img src="images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
         </a>
         <p>Your one-stop-shop for bookkeeping, tax preparation, consulting, and branding. Based in Oklahoma City. Another branch of your business.</p>
       </div>
@@ -822,17 +316,10 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('mobile-menu').classList.toggle('open');
-    }
+    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
   </script>
