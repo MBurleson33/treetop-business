@@ -260,14 +260,19 @@
       position: relative;
       background: var(--green-mid);
       cursor: pointer;
+      display: block;
+      text-decoration: none;
     }
-    .tt-portfolio-item-bg {
+    .tt-portfolio-img {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
-      transition: transform 0.4s;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
     }
-    .tt-portfolio-item:hover .tt-portfolio-item-bg { transform: scale(1.05); }
+    .tt-portfolio-item:hover .tt-portfolio-img { transform: scale(1.04); }
+
     .tt-portfolio-overlay {
       position: absolute;
       inset: 0;
@@ -277,11 +282,24 @@
       padding: 16px;
     }
     .tt-portfolio-name {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       font-weight: 500;
       color: var(--white);
       letter-spacing: 0.04em;
       line-height: 1.3;
+    }
+    .tt-portfolio-visit {
+      font-size: 0.68rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .tt-portfolio-item:hover .tt-portfolio-visit {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ── CTA ── */
@@ -442,30 +460,55 @@
         <h2>A few brands we've<br><em>helped build.</em></h2>
       </div>
       <div class="tt-portfolio-grid reveal">
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">Plentiful Health &amp; Wellness</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">Elevate Recruiting LLC</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">Vet Sense UPC</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">TOF Turf &amp; Outdoors</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">The Copper Roost</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">Treetop Business Solutions</div></div>
-        </div>
+
+        <a class="tt-portfolio-item" href="https://www.plentifulhealthok.com/" target="_blank" rel="noopener">
+          <img src="images/Plentiful.jpg" alt="Plentiful Health &amp; Wellness" class="tt-portfolio-img" />
+          <div class="tt-portfolio-overlay">
+            <div class="tt-portfolio-name">Plentiful Health &amp; Wellness</div>
+            <div class="tt-portfolio-visit">Visit Site →</div>
+          </div>
+        </a>
+
+        <a class="tt-portfolio-item" href="https://www.elevaterecruitingllc.com/" target="_blank" rel="noopener">
+          <img src="images/Elevate.jpg" alt="Elevate Recruiting LLC" class="tt-portfolio-img" />
+          <div class="tt-portfolio-overlay">
+            <div class="tt-portfolio-name">Elevate Recruiting LLC</div>
+            <div class="tt-portfolio-visit">Visit Site →</div>
+          </div>
+        </a>
+
+        <a class="tt-portfolio-item" href="https://www.vetsenseupc.com/" target="_blank" rel="noopener">
+          <img src="images/VetSense.jpg" alt="Vet Sense UPC" class="tt-portfolio-img" />
+          <div class="tt-portfolio-overlay">
+            <div class="tt-portfolio-name">Vet Sense UPC</div>
+            <div class="tt-portfolio-visit">Visit Site →</div>
+          </div>
+        </a>
+
+        <a class="tt-portfolio-item" href="https://www.tofturfandoutdoors.com/" target="_blank" rel="noopener">
+          <img src="images/TOF.jpg" alt="TOF Turf &amp; Outdoors" class="tt-portfolio-img" />
+          <div class="tt-portfolio-overlay">
+            <div class="tt-portfolio-name">TOF Turf &amp; Outdoors</div>
+            <div class="tt-portfolio-visit">Visit Site →</div>
+          </div>
+        </a>
+
+        <a class="tt-portfolio-item" href="https://www.copperroostokc.com/" target="_blank" rel="noopener">
+          <img src="images/CopperRoost.jpg" alt="The Copper Roost" class="tt-portfolio-img" />
+          <div class="tt-portfolio-overlay">
+            <div class="tt-portfolio-name">The Copper Roost</div>
+            <div class="tt-portfolio-visit">Visit Site →</div>
+          </div>
+        </a>
+
+        <a class="tt-portfolio-item" href="https://treetopbusiness.com" target="_blank" rel="noopener">
+          <img src="images/Treetop.jpg" alt="Treetop Business Solutions" class="tt-portfolio-img" />
+          <div class="tt-portfolio-overlay">
+            <div class="tt-portfolio-name">Treetop Business Solutions</div>
+            <div class="tt-portfolio-visit">Visit Site →</div>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
