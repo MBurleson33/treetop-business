@@ -472,11 +472,7 @@
       const btn = document.getElementById('submit-btn');
       const errorEl = document.getElementById('form-error');
       errorEl.classList.remove('visible');
-      btn.textContent = 'Sending...';
-      btn.style.opacity = '0.7';
-      btn.disabled = true;
 
-      // Collect values
       // Honeypot check -- if filled, silently reject
       if (document.querySelector('input[name="_gotcha"]').value) {
         document.getElementById('contact-form').style.display = 'none';
@@ -494,27 +490,32 @@
       const services    = [...document.querySelectorAll('input[name="services"]:checked')].map(i => i.value).join(', ');
       const comments    = document.getElementById('comments').value.trim();
 
-      // Basic validation
-      if (!firstName || !lastName || !company || !email || !phone || !contactPref) {
-        errorEl.textContent = 'Please fill in all required fields.';
+      // Validation -- contact pref not required to allow submission
+      if (!firstName || !lastName || !company || !email || !phone) {
+        errorEl.textContent = 'Please fill in all required fields (name, company, email and phone).';
         errorEl.classList.add('visible');
-        btn.textContent = 'Send Message';
-        btn.style.opacity = '1';
-        btn.disabled = false;
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
+      btn.textContent = 'Sending...';
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+
       const data = {
-        name: `${firstName} ${lastName}`,
-        company, email, phone,
-        contact_preference: contactPref,
+        _subject: 'New Treetop Get Started Form Submission',
+        name: firstName + ' ' + lastName,
+        company: company,
+        email: email,
+        phone: phone,
+        contact_preference: contactPref || 'Not specified',
         best_times: bestTimes || 'Not specified',
         services_interested: services || 'Not specified',
         comments: comments || 'None'
       };
 
       try {
-        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(data)
@@ -523,13 +524,16 @@
         if (res.ok) {
           document.getElementById('contact-form').style.display = 'none';
           document.getElementById('form-success').classList.add('visible');
-          window.scrollTo({ top: document.getElementById('form-success').offsetTop - 140, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          throw new Error('Server error');
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || 'Status ' + res.status);
         }
-      } catch {
-        errorEl.textContent = 'Something went wrong. Please try again or email us directly at info@treetopbusiness.com.';
+      } catch (err) {
+        console.error('Form error:', err);
+        errorEl.textContent = 'Something went wrong: ' + err.message + '. Please email us directly at info@treetopbusiness.com.';
         errorEl.classList.add('visible');
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         btn.textContent = 'Send Message';
         btn.style.opacity = '1';
         btn.disabled = false;
