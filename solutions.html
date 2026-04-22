@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── SOLUTIONS PAGE ── */
+    /* -- SOLUTIONS PAGE -- */
 
     .section-services {
       background: var(--white);
@@ -140,7 +140,7 @@
     .service-cta:hover { color: var(--gold); gap: 14px; }
     .service-cta:hover::after { transform: translateX(4px); }
 
-    /* Branding card — cream accent label */
+    /* Branding card -- cream accent label */
     .service-card-branding .service-label {
       background: var(--green);
       border-right-color: rgba(255,255,255,0.1);
@@ -247,7 +247,7 @@
             <div class="service-items-title">What's Included</div>
             <ul class="service-list">
               <li>QuickBooks Online setup &amp; management</li>
-              <li>Financial Statements — Monthly, Quarterly &amp; Annual</li>
+              <li>Financial Statements -- Monthly, Quarterly &amp; Annual</li>
               <li>Accounts Receivable / Invoicing</li>
               <li>Accounts Payable</li>
               <li>Bank &amp; credit card reconciliation</li>
@@ -294,7 +294,7 @@
             </svg>
           </div>
           <h2>Sales <em>Tax</em></h2>
-          <p>Stay compliant with comprehensive tax and payroll reporting — without the headache.</p>
+          <p>Stay compliant with comprehensive tax and payroll reporting -- without the headache.</p>
         </div>
         <div class="service-details">
           <div class="service-items">
@@ -302,7 +302,7 @@
             <ul class="service-list">
               <li>Sales Tax Reporting &amp; Filing</li>
               <li>Annual 1099 &amp; W2 Filings</li>
-              <li>Payroll Reports — monthly, quarterly &amp; annually</li>
+              <li>Payroll Reports -- monthly, quarterly &amp; annually</li>
               <li>W2 &amp; state wage reports</li>
               <li>Employment Security Reports</li>
               <li>941/W2 filings</li>
@@ -317,7 +317,7 @@
         <div class="service-label service-label-branding-left">
           <span class="service-label-badge">thirtythree visuals</span>
           <h2>Branding &amp; <em>Web</em></h2>
-          <p>From logos to full websites — we help your business look as good as it runs.</p>
+          <p>From logos to full websites -- we help your business look as good as it runs.</p>
         </div>
         <div class="service-details">
           <div class="service-items">
@@ -349,7 +349,7 @@
       <h2 class="cta-headline">
         Not sure which service<br>is right for <em>you?</em>
       </h2>
-      <p class="cta-body">Fill out our Get Started form and tell us a little about your business. We'll reach out to talk through the best fit — no pressure, just a conversation.</p>
+      <p class="cta-body">Fill out our Get Started form and tell us a little about your business. We'll reach out to talk through the best fit -- no pressure, just a conversation.</p>
       <a href="get-started.html" class="btn-primary">Get Started Today</a>
     </div>
   </section>
@@ -397,7 +397,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Treetop Business Solutions is not a licensed CPA firm but is affiliated with Boas CPA, PLLC, a licensed Oklahoma CPA firm. Treetop Business Solutions, LLC is fully insured. © 2025 TREETOP BUSINESS SOLUTIONS, LLC.</p>
+      <p>Treetop Business Solutions is not a licensed CPA firm but is affiliated with Boas CPA, PLLC, a licensed Oklahoma CPA firm. Treetop Business Solutions, LLC is fully insured. &copy; 2025 TREETOP BUSINESS SOLUTIONS, LLC.</p>
       <p>Created by <a href="https://thirtythreevisuals.com" target="_blank">thirtythree visuals</a></p>
     </div>
   </footer>
@@ -414,5 +414,14 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
   </script>
+  <!-- Floating Get Started -->
+  <a class="float-side-btn" id="float-side-btn" href="get-started.html">Get Started</a>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
 </body>
 </html>
