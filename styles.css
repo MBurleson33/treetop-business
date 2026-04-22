@@ -1,9 +1,9 @@
 /* ============================================================
-   TREETOP BUSINESS SOLUTIONS — Shared Stylesheet
+   TREETOP BUSINESS SOLUTIONS -- Shared Stylesheet
    styles.css
    ============================================================ */
 
-/* ── TOKENS ── */
+/* -- TOKENS -- */
 :root {
   --green:     #0A2922;
   --green-mid: #0d3830;
@@ -17,7 +17,7 @@
   --sans:      'Jost', sans-serif;
 }
 
-/* ── RESET ── */
+/* -- RESET -- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -27,7 +27,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── NAV ── */
+/* -- NAV -- */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -92,7 +92,7 @@ nav.solid {
   transform: translateY(-1px);
 }
 
-/* ── HAMBURGER / MOBILE MENU ── */
+/* -- HAMBURGER / MOBILE MENU -- */
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -133,7 +133,7 @@ nav.solid {
   text-align: center;
 }
 
-/* ── PAGE HEADER (inner pages) ── */
+/* -- PAGE HEADER (inner pages) -- */
 .page-header {
   background: var(--green);
   padding: 160px 4% 80px;
@@ -189,7 +189,7 @@ nav.solid {
 }
 .page-title em { font-style: italic; color: var(--gold); }
 
-/* ── SHARED SECTION LABELS ── */
+/* -- SHARED SECTION LABELS -- */
 .section-label {
   display: flex;
   align-items: center;
@@ -214,7 +214,7 @@ nav.solid {
 }
 .section-headline em { font-style: italic; }
 
-/* ── BUTTONS ── */
+/* -- BUTTONS -- */
 .btn-primary {
   display: inline-block;
   font-size: 0.77rem;
@@ -265,7 +265,7 @@ nav.solid {
 .btn-ghost:hover { color: var(--gold); }
 .btn-ghost:hover::after { transform: translateX(4px); }
 
-/* ── FOOTER ── */
+/* -- FOOTER -- */
 footer {
   background: var(--green);
   padding: 64px 4% 32px;
@@ -350,7 +350,7 @@ footer {
 .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
 .footer-bottom a:hover { color: var(--gold); }
 
-/* ── ANIMATIONS ── */
+/* -- ANIMATIONS -- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -364,7 +364,7 @@ footer {
   50%       { opacity: 1;   transform: scaleY(1.15); }
 }
 
-/* ── SCROLL REVEAL ── */
+/* -- SCROLL REVEAL -- */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -376,7 +376,14 @@ footer {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-/* ── RESPONSIVE ── */
+/* -- RESPONSIVE -- */
+@media (max-width: 768px) {
+  nav { padding: 0 5%; }
+  .page-header { padding: 140px 5% 60px; }
+  footer { padding: 48px 5% 24px; }
+  .mobile-menu { padding: 24px 5% 32px; }
+}
+
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
@@ -387,4 +394,74 @@ footer {
 }
 @media (max-width: 600px) {
   .footer-top { grid-template-columns: 1fr; }
+}
+
+/* -- BACK TO TOP -- */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 1.5px solid rgba(207,184,125,0.35);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s, background 0.2s;
+  pointer-events: none;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.back-to-top:hover {
+  background: var(--gold);
+  color: var(--green);
+}
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* -- FLOATING SIDE BUTTON -- */
+.float-side-btn {
+  position: fixed;
+  right: -108px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  background: var(--gold);
+  color: var(--green);
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 20px;
+  border-radius: 4px 0 0 4px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: translateY(-50%) rotate(180deg);
+  transition: right 0.3s ease, background 0.2s;
+  box-shadow: -3px 0 16px rgba(0,0,0,0.15);
+}
+.float-side-btn.visible {
+  right: 0;
+}
+.float-side-btn:hover {
+  background: var(--gold-light);
+}
+
+@media (max-width: 600px) {
+  .back-to-top { bottom: 20px; right: 20px; width: 38px; height: 38px; }
+  .float-side-btn { display: none; }
 }
