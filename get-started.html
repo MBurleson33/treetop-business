@@ -557,14 +557,20 @@
         });
 
         if (res.ok) {
-          document.getElementById('contact-form').style.display = 'none';
-          document.getElementById('form-success').classList.add('visible');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          gtag('event', 'form_submit', { event_category: 'engagement', event_label: 'Get Started Form' });
-        } else {
-          const body = await res.json().catch(() => ({}));
-          throw new Error(body.error || 'Status ' + res.status);
-        }
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('form-success').classList.add('visible');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Safely fire Google Analytics event
+  if (typeof gtag === 'function') {
+    gtag('event', 'form_submit', {
+      form_name: 'Get Started Form'
+    });
+  }
+} else {
+  const body = await res.json().catch(() => ({}));
+  throw new Error(body.error || 'Status ' + res.status);
+}
       } catch (err) {
         console.error('Form error:', err);
         errorEl.textContent = 'Something went wrong: ' + err.message + '. Please email us directly at info@treetopbusiness.com.';
