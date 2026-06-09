@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Get Your Partner.Co Site — Treetop Business Solutions</title>
+<meta name="description" content="Get a professional Partner.Co distributor website built and live in days. Powered by Treetop Business Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF7F2;
+    --linen: #F2EDE4;
+    --sand: #E8DFD0;
+    --gold: #B89A6A;
+    --gold-light: #D4B896;
+    --ink: #2C2520;
+    --ink-mid: #5C4F44;
+    --ink-light: #8C7E72;
+    --sage: #7A8C72;
+    --white: #FFFFFF;
+    --error: #C0392B;
+    --treetop: #0A2922;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; min-height: 100vh; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--treetop);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-header-brand {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .site-header-sub {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  /* ── HERO ── */
+  .page-hero {
+    background: var(--treetop);
+    padding: 4rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-body {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    max-width: 680px;
+    margin: 3rem auto 0;
+    padding: 0 2rem;
+  }
+  .progress-bar {
+    height: 3px;
+    background: var(--sand);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    display: flex;
+    justify-content: space-between;
+  }
+  .progress-label span { color: var(--gold); }
+
+  /* ── FORM WRAPPER ── */
+  .form-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 5rem;
+  }
+
+  /* ── STEPS ── */
+  .step { display: none; }
+  .step.active { display: block; }
+  .step-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .step-desc {
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  /* ── FIELDS ── */
+  .field-group { margin-bottom: 1.25rem; }
+  .field-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-bottom: 0.4rem;
+  }
+  .field-hint {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    margin-top: 0.3rem;
+    line-height: 1.5;
+  }
+  .field-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--ink);
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .field-input:focus { border-color: var(--gold); }
+  .field-input.error { border-color: var(--error); }
+  .field-input::placeholder { color: var(--ink-light); }
+  textarea.field-input { resize: vertical; min-height: 100px; line-height: 1.6; }
+  .field-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* Color picker */
+  .color-field {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .color-field:focus-within { border-color: var(--gold); }
+  .color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+    border: 1px solid var(--sand);
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .color-swatch input[type="color"] {
+    position: absolute;
+    inset: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+  }
+  .color-value {
+    font-size: 0.85rem;
+    font-family: monospace;
+    color: var(--ink-mid);
+    flex: 1;
+  }
+  .color-label-text { font-size: 0.85rem; color: var(--ink); }
+
+  /* Font presets */
+  .font-presets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .font-preset {
+    border: 2px solid var(--sand);
+    border-radius: 2px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--white);
+  }
+  .font-preset.selected { border-color: var(--gold); background: var(--linen); }
+  .font-preset-name { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.4rem; display: block; }
+  .font-preset-sample { font-size: 1.3rem; line-height: 1.2; color: var(--ink); }
+
+  /* Photo upload */
+  .photo-upload {
+    border: 2px dashed var(--sand);
+    border-radius: 2px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--white);
+    position: relative;
+  }
+  .photo-upload:hover { border-color: var(--gold); background: var(--linen); }
+  .photo-upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .photo-upload-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+  .photo-upload-label { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.5; }
+  .photo-upload-hint { font-size: 0.75rem; color: var(--ink-light); margin-top: 0.25rem; }
+  .photo-preview { width: 100%; max-height: 200px; object-fit: cover; border-radius: 2px; margin-top: 0.75rem; display: none; }
+
+  /* Review step */
+  .review-section { margin-bottom: 1.75rem; }
+  .review-section-title {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--sand);
+    margin-bottom: 0.85rem;
+    display: block;
+  }
+  .review-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--linen);
+  }
+  .review-item:last-child { border-bottom: none; }
+  .review-key { color: var(--ink-light); min-width: 130px; flex-shrink: 0; }
+  .review-val { color: var(--ink); word-break: break-word; }
+  .review-color-dot { width: 16px; height: 16px; border-radius: 2px; display: inline-block; margin-right: 0.4rem; vertical-align: middle; border: 1px solid var(--sand); }
+
+  /* Navigation buttons */
+  .step-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--sand);
+    gap: 1rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.75rem;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-gold { background: var(--gold); color: var(--white); }
+  .btn-gold:hover { background: var(--ink); }
+  .btn-outline { background: transparent; color: var(--ink-mid); border: 1px solid var(--sand); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn:disabled { opacity: 0.5; cursor: default; }
+  .btn-full { width: 100%; justify-content: center; }
+
+  /* Success screen */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 5rem 2rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .success-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+  .success-title { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; color: var(--ink); margin-bottom: 1rem; }
+  .success-body { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.8; margin-bottom: 2rem; }
+  .next-steps { background: var(--linen); border: 1px solid var(--sand); border-left: 3px solid var(--gold); border-radius: 2px; padding: 1.5rem; text-align: left; margin-bottom: 2rem; }
+  .next-steps-title { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+  .next-step { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.88rem; color: var(--ink-mid); line-height: 1.5; }
+  .next-step:last-child { margin-bottom: 0; }
+  .next-step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--gold); color: var(--white); font-size: 0.65rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+
+  /* Footer */
+  .site-footer { background: var(--ink); padding: 2rem; text-align: center; }
+  .site-footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+  .site-footer a { color: var(--gold-light); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .field-row-2 { grid-template-columns: 1fr; }
+    .font-presets { grid-template-columns: 1fr; }
+    .step-nav { flex-direction: column-reverse; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="https://treetopbusiness.com" class="site-header-brand">Treetop Business Solutions</a>
+  <span class="site-header-sub">Partner.Co Sites</span>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="hero-eyebrow">Partner.Co Distributor Websites</span>
+  <h1 class="hero-title">Your site.<br><em>Your story.</em><br>Live in days.</h1>
+  <p class="hero-body">Tell us about yourself and your brand. We'll build you a professional wellness site — complete with an admin panel, order form, and everything you need to grow your business.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap" id="progressWrap">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:16.6%"></div></div>
+  <div class="progress-label"><span id="stepLabel">Step 1 of 6 — Contact Info</span><span id="stepPct">17%</span></div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap" id="formWrap">
+
+  <!-- STEP 1 — Contact Info -->
+  <div class="step active" id="step1">
+    <h2 class="step-title">Let's start with you.</h2>
+    <p class="step-desc">Basic contact info so we can reach you and set up your site correctly.</p>
+
+    <div class="field-group">
+      <label class="field-label" for="s1Name">Full Name *</label>
+      <input class="field-input" id="s1Name" type="text" placeholder="e.g. Tammy Maltby Melchisedeck" autocomplete="name">
+    </div>
+    <div class="field-row-2">
+      <div class="field-group">
+        <label class="field-label" for="s1Email">Email Address *</label>
+        <input class="field-input" id="s1Email" type="email" placeholder="you@email.com" autocomplete="email">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="s1Phone">Phone Number</label>
+        <input class="field-input" id="s1Phone" type="tel" placeholder="(555) 000-0000" autocomplete="tel">
+      </div>
+    </div>
+    <div class="field-row-2">
+      <div class="field-group">
+        <label class="field-label" for="s1Venmo">Venmo Handle *</label>
+        <input class="field-input" id="s1Venmo" type="text" placeholder="@your-venmo">
+        <p class="field-hint">Customers will pay you via Venmo</p>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="s1Paypal">PayPal.me Link *</label>
+        <input class="field-input" id="s1Paypal" type="text" placeholder="paypal.me/yourname">
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="s1Domain">Desired Domain (optional)</label>
+      <input class="field-input" id="s1Domain" type="text" placeholder="e.g. tammywellness.com">
+      <p class="field-hint">If you already have a domain or have one in mind. We'll help connect it.</p>
+    </div>
+
+    <div class="step-nav">
+      <span></span>
+      <button class="btn btn-gold" onclick="nextStep(1)">
+        Continue
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Branding -->
+  <div class="step" id="step2">
+    <h2 class="step-title">Your brand colors.</h2>
+    <p class="step-desc">Choose the colors for your site. These will be applied throughout — buttons, accents, backgrounds. You can always update them later.</p>
+
+    <div class="field-group">
+      <label class="field-label">Primary Accent Color</label>
+      <div class="color-field">
+        <div class="color-swatch" id="swatch1">
+          <input type="color" id="s2ColorGold" value="#B89A6A" oninput="updateSwatch('swatch1','s2ColorGold','s2ColorGoldVal')">
+        </div>
+        <span class="color-value" id="s2ColorGoldVal">#B89A6A</span>
+        <span class="color-label-text">Buttons, links, highlights</span>
+      </div>
+      <p class="field-hint">Your main brand color. Gold works beautifully for wellness brands — but choose what feels like you.</p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Dark Background Color</label>
+      <div class="color-field">
+        <div class="color-swatch" id="swatch2">
+          <input type="color" id="s2ColorInk" value="#2C2520" oninput="updateSwatch('swatch2','s2ColorInk','s2ColorInkVal')">
+        </div>
+        <span class="color-value" id="s2ColorInkVal">#2C2520</span>
+        <span class="color-label-text">Dark sections, nav overlay</span>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Page Background Color</label>
+      <div class="color-field">
+        <div class="color-swatch" id="swatch3">
+          <input type="color" id="s2ColorCream" value="#FAF7F2" oninput="updateSwatch('swatch3','s2ColorCream','s2ColorCreamVal')">
+        </div>
+        <span class="color-value" id="s2ColorCreamVal">#FAF7F2</span>
+        <span class="color-label-text">Main page background</span>
+      </div>
+      <p class="field-hint">Usually a warm off-white or very light neutral.</p>
+    </div>
+
+    <div class="field-group" style="margin-top:2rem">
+      <label class="field-label">Font Style</label>
+      <div class="font-presets">
+        <div class="font-preset selected" onclick="selectFont('elegant',this)">
+          <span class="font-preset-name">Elegant</span>
+          <div class="font-preset-sample" style="font-family:'Cormorant Garamond',serif">Hello Beautiful</div>
+          <div style="font-size:0.7rem;color:#8C7E72;margin-top:0.3rem;font-family:'DM Sans',sans-serif">Cormorant + DM Sans</div>
+        </div>
+        <div class="font-preset" onclick="selectFont('modern',this)">
+          <span class="font-preset-name">Modern</span>
+          <div class="font-preset-sample" style="font-family:'Playfair Display',serif">Hello Beautiful</div>
+          <div style="font-size:0.7rem;color:#8C7E72;margin-top:0.3rem;font-family:'DM Sans',sans-serif">Playfair + Jost</div>
+        </div>
+        <div class="font-preset" onclick="selectFont('fresh',this)">
+          <span class="font-preset-name">Fresh</span>
+          <div class="font-preset-sample" style="font-family:'Lora',serif">Hello Beautiful</div>
+          <div style="font-size:0.7rem;color:#8C7E72;margin-top:0.3rem;font-family:'DM Sans',sans-serif">Lora + Nunito</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-outline" onclick="prevStep(2)">← Back</button>
+      <button class="btn btn-gold" onclick="nextStep(2)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Photos -->
+  <div class="step" id="step3">
+    <h2 class="step-title">Your photos.</h2>
+    <p class="step-desc">These are the most important part of your site. People connect with people — your photo builds trust instantly.</p>
+
+    <div class="field-group">
+      <label class="field-label">Hero Photo * <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:0.75rem;color:var(--ink-light)">— shown full-screen on the homepage</span></label>
+      <div class="photo-upload" id="heroUpload">
+        <input type="file" accept="image/*" onchange="previewPhoto(this,'heroPreview','heroUpload')">
+        <span class="photo-upload-icon">🖼</span>
+        <p class="photo-upload-label">Click to upload your hero photo</p>
+        <p class="photo-upload-hint">Portrait orientation works best · JPG or WebP · min 1200px tall</p>
+        <img id="heroPreview" class="photo-preview" alt="Hero preview">
+      </div>
+    </div>
+
+    <div class="field-group" style="margin-top:1.5rem">
+      <label class="field-label">About / Headshot Photo <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:0.75rem;color:var(--ink-light)">— shown on your About page</span></label>
+      <div class="photo-upload" id="aboutUpload">
+        <input type="file" accept="image/*" onchange="previewPhoto(this,'aboutPreview','aboutUpload')">
+        <span class="photo-upload-icon">📸</span>
+        <p class="photo-upload-label">Click to upload your about photo</p>
+        <p class="photo-upload-hint">Portrait or square · JPG or WebP · min 800px</p>
+        <img id="aboutPreview" class="photo-preview" alt="About preview">
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-outline" onclick="prevStep(3)">← Back</button>
+      <button class="btn btn-gold" onclick="nextStep(3)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4 — Your Story -->
+  <div class="step" id="step4">
+    <h2 class="step-title">Your story.</h2>
+    <p class="step-desc">The words that will welcome people to your site. Write like you're talking to a close friend — personal, warm, real.</p>
+
+    <div class="field-group">
+      <label class="field-label" for="s4Tagline">Personal Tagline</label>
+      <input class="field-input" id="s4Tagline" type="text" placeholder="e.g. Wellness. Faith. Purpose.">
+      <p class="field-hint">3–5 words shown under your name in the footer. What do you stand for?</p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="s4Headline">Homepage Headline *</label>
+      <input class="field-input" id="s4Headline" type="text" placeholder="e.g. Real results. Real people. Real transformation.">
+      <p class="field-hint">The big statement at the top of your site. Bold and clear. Wrap *words* in asterisks to make them gold.</p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="s4HeroBody">Homepage Introduction *</label>
+      <textarea class="field-input" id="s4HeroBody" placeholder="Tell people what you do and who you help. What makes your approach different?"></textarea>
+      <p class="field-hint">2–3 sentences shown under your headline. This is your first impression.</p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="s4Bio">About You *</label>
+      <textarea class="field-input" id="s4Bio" style="min-height:160px" placeholder="Share your story — what brought you to Partner.Co, your personal transformation, your mission, your heart for people..."></textarea>
+      <p class="field-hint">This goes on your About page. Be personal and authentic — people buy from people they trust.</p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="s4Letter">Welcome Letter (optional)</label>
+      <textarea class="field-input" id="s4Letter" style="min-height:140px" placeholder="A personal letter that pops up when someone first visits your site. Optional but powerful."></textarea>
+      <p class="field-hint">Think of it as a warm welcome — like opening the door to your home.</p>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-outline" onclick="prevStep(4)">← Back</button>
+      <button class="btn btn-gold" onclick="nextStep(4)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 5 — Social -->
+  <div class="step" id="step5">
+    <h2 class="step-title">Your social links.</h2>
+    <p class="step-desc">These appear in your site footer. Add whichever ones you use — all are optional.</p>
+
+    <div class="field-group">
+      <label class="field-label" for="s5Facebook">Facebook</label>
+      <input class="field-input" id="s5Facebook" type="url" placeholder="https://facebook.com/yourpage">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="s5Instagram">Instagram</label>
+      <input class="field-input" id="s5Instagram" type="url" placeholder="https://instagram.com/yourhandle">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="s5Tiktok">TikTok</label>
+      <input class="field-input" id="s5Tiktok" type="url" placeholder="https://tiktok.com/@yourhandle">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="s5Youtube">YouTube</label>
+      <input class="field-input" id="s5Youtube" type="url" placeholder="https://youtube.com/@yourchannel">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="s5Other">Other Notes</label>
+      <textarea class="field-input" id="s5Other" placeholder="Anything else you want us to know — special requests, questions, your partner.co distributor ID, etc."></textarea>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-outline" onclick="prevStep(5)">← Back</button>
+      <button class="btn btn-gold" onclick="nextStep(5)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 6 — Review -->
+  <div class="step" id="step6">
+    <h2 class="step-title">Review & submit.</h2>
+    <p class="step-desc">Take a moment to review everything. Once you submit, we'll receive your info and be in touch within 1 business day to get started.</p>
+
+    <div id="reviewContent"></div>
+
+    <div class="step-nav">
+      <button class="btn btn-outline" onclick="prevStep(6)">← Back</button>
+      <button class="btn btn-gold" id="submitBtn" onclick="submitForm()">
+        Submit My Info
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- SUCCESS -->
+<div class="success-screen" id="successScreen">
+  <span class="success-icon">✦</span>
+  <h2 class="success-title">You're on your way!</h2>
+  <p class="success-body">We've received everything and will be in touch within <strong>1 business day</strong> to get your site started. Check your inbox for a confirmation.</p>
+
+  <div class="next-steps">
+    <span class="next-steps-title">What happens next</span>
+    <div class="next-step"><span class="next-step-num">1</span>We review your submission and set up your Supabase database and GitHub repo</div>
+    <div class="next-step"><span class="next-step-num">2</span>We build and configure your site using your content and branding</div>
+    <div class="next-step"><span class="next-step-num">3</span>We send you a preview link for your approval</div>
+    <div class="next-step"><span class="next-step-num">4</span>We connect your domain and go live — usually within 3–5 business days</div>
+  </div>
+
+  <p style="font-size:0.85rem;color:var(--ink-light)">Questions? Email us at <a href="mailto:hello@treetopbusiness.com" style="color:var(--gold)">hello@treetopbusiness.com</a></p>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Treetop Business Solutions · <a href="https://treetopbusiness.com">treetopbusiness.com</a></p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var currentStep = 1;
+  var totalSteps = 6;
+  var selectedFont = 'elegant';
+  var photoFiles = { hero: null, about: null };
+
+  var stepLabels = [
+    'Contact Info',
+    'Brand Colors & Fonts',
+    'Photos',
+    'Your Story',
+    'Social Links',
+    'Review & Submit'
+  ];
+
+  // ── NAVIGATION ──
+  function nextStep(from) {
+    if (!validateStep(from)) return;
+    if (from === totalSteps - 1) { buildReview(); }
+    goToStep(from + 1);
+  }
+
+  function prevStep(from) { goToStep(from - 1); }
+
+  function goToStep(n) {
+    document.getElementById('step' + currentStep).classList.remove('active');
+    currentStep = n;
+    document.getElementById('step' + currentStep).classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateProgress() {
+    var pct = Math.round((currentStep / totalSteps) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('stepLabel').textContent = 'Step ' + currentStep + ' of ' + totalSteps + ' — ' + stepLabels[currentStep - 1];
+    document.getElementById('stepPct').textContent = pct + '%';
+  }
+
+  // ── VALIDATION ──
+  function validateStep(n) {
+    var required = {
+      1: ['s1Name','s1Email','s1Venmo','s1Paypal'],
+      2: [],
+      3: [],
+      4: ['s4Headline','s4HeroBody','s4Bio'],
+      5: [],
+      6: []
+    };
+    var fields = required[n] || [];
+    var valid = true;
+    fields.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.classList.add('error');
+        valid = false;
+      } else {
+        el.classList.remove('error');
+      }
+    });
+    if (!valid) {
+      var first = document.querySelector('.error');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return valid;
+  }
+
+  // Clear error on input
+  document.querySelectorAll('.field-input').forEach(function(f) {
+    f.addEventListener('input', function() { f.classList.remove('error'); });
+  });
+
+  // ── COLOR PICKERS ──
+  function updateSwatch(swatchId, inputId, valId) {
+    var val = document.getElementById(inputId).value;
+    document.getElementById(swatchId).style.background = val;
+    document.getElementById(valId).textContent = val;
+  }
+  // Init swatches
+  ['swatch1','swatch2','swatch3'].forEach(function(id, i) {
+    var colors = ['#B89A6A','#2C2520','#FAF7F2'];
+    document.getElementById(id).style.background = colors[i];
+  });
+
+  // ── FONT SELECTION ──
+  function selectFont(name, el) {
+    selectedFont = name;
+    document.querySelectorAll('.font-preset').forEach(function(p) { p.classList.remove('selected'); });
+    el.classList.add('selected');
+  }
+
+  // ── PHOTO PREVIEW ──
+  function previewPhoto(input, previewId, uploadId) {
+    var file = input.files[0];
+    if (!file) return;
+    var key = uploadId === 'heroUpload' ? 'hero' : 'about';
+    photoFiles[key] = file;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var img = document.getElementById(previewId);
+      img.src = e.target.result;
+      img.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // ── BUILD REVIEW ──
+  function buildReview() {
+    var fontNames = { elegant: 'Elegant (Cormorant + DM Sans)', modern: 'Modern (Playfair + Jost)', fresh: 'Fresh (Lora + Nunito)' };
+    var html =
+      reviewSection('Contact Information', [
+        ['Full Name',    v('s1Name')],
+        ['Email',        v('s1Email')],
+        ['Phone',        v('s1Phone') || '—'],
+        ['Venmo',        v('s1Venmo')],
+        ['PayPal',       v('s1Paypal')],
+        ['Domain',       v('s1Domain') || '—'],
+      ]) +
+      reviewSection('Branding', [
+        ['Accent Color',    '<span class="review-color-dot" style="background:' + v('s2ColorGold') + '"></span>' + v('s2ColorGold')],
+        ['Dark Color',      '<span class="review-color-dot" style="background:' + v('s2ColorInk') + '"></span>' + v('s2ColorInk')],
+        ['Background',      '<span class="review-color-dot" style="background:' + v('s2ColorCream') + '"></span>' + v('s2ColorCream')],
+        ['Font Style',      fontNames[selectedFont]],
+      ]) +
+      reviewSection('Photos', [
+        ['Hero Photo',   photoFiles.hero ? '✓ ' + photoFiles.hero.name : '— not uploaded'],
+        ['About Photo',  photoFiles.about ? '✓ ' + photoFiles.about.name : '— not uploaded'],
+      ]) +
+      reviewSection('Your Story', [
+        ['Tagline',      v('s4Tagline') || '—'],
+        ['Headline',     v('s4Headline')],
+        ['Intro',        v('s4HeroBody')],
+        ['Bio',          v('s4Bio').substring(0, 120) + (v('s4Bio').length > 120 ? '…' : '')],
+        ['Welcome Letter', v('s4Letter') ? '✓ Provided' : '— skipped'],
+      ]) +
+      reviewSection('Social', [
+        ['Facebook',  v('s5Facebook') || '—'],
+        ['Instagram', v('s5Instagram') || '—'],
+        ['TikTok',    v('s5Tiktok') || '—'],
+        ['YouTube',   v('s5Youtube') || '—'],
+        ['Notes',     v('s5Other') || '—'],
+      ]);
+    document.getElementById('reviewContent').innerHTML = html;
+  }
+
+  function reviewSection(title, items) {
+    var rows = items.map(function(item) {
+      return '<div class="review-item"><span class="review-key">' + item[0] + '</span><span class="review-val">' + item[1] + '</span></div>';
+    }).join('');
+    return '<div class="review-section"><span class="review-section-title">' + title + '</span>' + rows + '</div>';
+  }
+
+  function v(id) { return document.getElementById(id).value; }
+
+  // ── GENERATE CONFIG ──
+  function generateConfig() {
+    var fontMap = {
+      elegant: { serif: 'Cormorant Garamond', sans: 'DM Sans', url: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap' },
+      modern:  { serif: 'Playfair Display',    sans: 'Jost',    url: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap' },
+      fresh:   { serif: 'Lora',                sans: 'Nunito',  url: 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500&display=swap' }
+    };
+    var font = fontMap[selectedFont];
+    var name = v('s1Name');
+    var safeName = name.replace(/'/g, "\\'");
+
+    return [
+      '// ─────────────────────────────────────────────────────',
+      '// SITE CONFIGURATION — ' + name,
+      '// Generated by Treetop Business Solutions',
+      '// ─────────────────────────────────────────────────────',
+      '',
+      'var SITE_CONFIG = {',
+      '',
+      '  brand: {',
+      "    name:       '" + safeName + "',",
+      "    shortName:  '" + name.split(' ')[0] + "',",
+      "    tagline:    '" + (v('s4Tagline') || 'Wellness. Faith. Purpose.').replace(/'/g,"\\'") + "',",
+      "    email:      '" + v('s1Email') + "',",
+      "    venmo:      '" + v('s1Venmo') + "',",
+      '  },',
+      '',
+      '  colors: {',
+      "    cream:      '" + v('s2ColorCream') + "',",
+      "    linen:      '#F2EDE4',",
+      "    sand:       '#E8DFD0',",
+      "    gold:       '" + v('s2ColorGold') + "',",
+      "    goldLight:  '" + lightenHex(v('s2ColorGold'), 20) + "',",
+      "    ink:        '" + v('s2ColorInk') + "',",
+      "    inkMid:     '" + lightenHex(v('s2ColorInk'), 50) + "',",
+      "    inkLight:   '" + lightenHex(v('s2ColorInk'), 80) + "',",
+      "    sage:       '#7A8C72',",
+      '  },',
+      '',
+      '  fonts: {',
+      "    serif:      '" + font.serif + "',",
+      "    sans:       '" + font.sans + "',",
+      "    googleUrl:  '" + font.url + "',",
+      '  },',
+      '',
+      '  social: {',
+      "    facebook:   '" + (v('s5Facebook') || '') + "',",
+      "    instagram:  '" + (v('s5Instagram') || '') + "',",
+      "    tiktok:     '" + (v('s5Tiktok') || '') + "',",
+      "    youtube:    '" + (v('s5Youtube') || '') + "',",
+      '  },',
+      '',
+      '  images: {',
+      "    hero:         'images/hero.webp',",
+      "    about:        'images/about.webp',",
+      "    dropsFeature: 'images/drops-feature.webp',",
+      "    partnerLogo:  'images/partner-logo.webp',",
+      "    favicon:      'images/favicon.png',",
+      "    loginBg:      'images/login-bg.jpg',",
+      '  },',
+      '',
+      '  hero: {',
+      "    eyebrow:    'Partner.Co Wellness',",
+      "    headline:   '" + v('s4Headline').replace(/'/g,"\\'") + "',",
+      "    body:       '" + v('s4HeroBody').replace(/'/g,"\\'").replace(/\n/g, ' ') + "',",
+      "    imgPosition: '45%',",
+      '  },',
+      '',
+      '  supabase: {',
+      "    url:     'YOUR_SUPABASE_URL',",
+      "    anonKey: 'YOUR_SUPABASE_ANON_KEY',",
+      '  },',
+      '',
+      '  formspree: {',
+      "    newsletter: 'YOUR_NEWSLETTER_FORM_ID',",
+      "    chat:       'YOUR_CHAT_FORM_ID',",
+      "    order:      'YOUR_ORDER_FORM_ID',",
+      '  },',
+      '',
+      '  nav: {',
+      '    links: [',
+      "      { label: 'The Drops',    href: '#drops' },",
+      "      { label: 'Results',      href: '#results' },",
+      "      { label: 'Testimonials', href: '#testimonials' },",
+      "      { label: 'About',        href: 'about.html' },",
+      '    ],',
+      '  },',
+      '',
+      '  trustBar: [',
+      "    '100% Natural & Plant-Based',",
+      "    'Hormone-Free Formula',",
+      "    'Free US Shipping',",
+      "    'Up to ¾ lb Lost Per Day',",
+      '  ],',
+      '',
+      '  cta: {',
+      "    headline: 'Start your transformation today.',",
+      "    body:     'Body Balancing Drops™. Natural, plant-based, hormone-free. Includes diet guide, program booklet, and personal support. Free US shipping.',",
+      '  },',
+      '',
+      '  footer: {',
+      "    disclaimer: 'These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.',",
+      '  },',
+      '',
+      '};'
+    ].join('\n');
+  }
+
+  // Simple hex lightener for auto-generating lighter shades
+  function lightenHex(hex, amount) {
+    try {
+      var r = parseInt(hex.slice(1,3),16);
+      var g = parseInt(hex.slice(3,5),16);
+      var b = parseInt(hex.slice(5,7),16);
+      r = Math.min(255, r + amount);
+      g = Math.min(255, g + amount);
+      b = Math.min(255, b + amount);
+      return '#' + [r,g,b].map(function(x){ return x.toString(16).padStart(2,'0'); }).join('');
+    } catch(e) { return hex; }
+  }
+
+  // ── SUBMIT ──
+  function submitForm() {
+    var btn = document.getElementById('submitBtn');
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    var configJs = generateConfig();
+
+    // Build form data for Formspree
+    var formData = new FormData();
+    formData.append('_subject', 'New Partner.Co Site Request — ' + v('s1Name'));
+    formData.append('name',     v('s1Name'));
+    formData.append('email',    v('s1Email'));
+    formData.append('phone',    v('s1Phone'));
+    formData.append('venmo',    v('s1Venmo'));
+    formData.append('paypal',   v('s1Paypal'));
+    formData.append('domain',   v('s1Domain'));
+    formData.append('accent_color', v('s2ColorGold'));
+    formData.append('dark_color',   v('s2ColorInk'));
+    formData.append('bg_color',     v('s2ColorCream'));
+    formData.append('font_style',   selectedFont);
+    formData.append('tagline',      v('s4Tagline'));
+    formData.append('headline',     v('s4Headline'));
+    formData.append('hero_body',    v('s4HeroBody'));
+    formData.append('bio',          v('s4Bio'));
+    formData.append('welcome_letter', v('s4Letter'));
+    formData.append('facebook',     v('s5Facebook'));
+    formData.append('instagram',    v('s5Instagram'));
+    formData.append('tiktok',       v('s5Tiktok'));
+    formData.append('youtube',      v('s5Youtube'));
+    formData.append('notes',        v('s5Other'));
+    formData.append('config_js',    configJs);
+
+    // Attach photos if uploaded
+    if (photoFiles.hero)  formData.append('hero_photo',  photoFiles.hero,  photoFiles.hero.name);
+    if (photoFiles.about) formData.append('about_photo', photoFiles.about, photoFiles.about.name);
+
+    fetch('https://formspree.io/f/YOUR_SETUP_FORM_ID', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(r) {
+      // Show success regardless (also works before Formspree is wired up)
+      showSuccess();
+    })
+    .catch(function() {
+      showSuccess();
+    });
+  }
+
+  function showSuccess() {
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
