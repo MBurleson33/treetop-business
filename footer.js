@@ -38,8 +38,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Treetop Business Solutions is not a licensed CPA firm but is affiliated with Goss CPA, PLLC, a licensed Oklahoma CPA firm. Treetop Business Solutions, LLC is fully insured. &copy; 2025 TREETOP BUSINESS SOLUTIONS, LLC.</p>
-      <p>Created by <a href="https://thirtythreevisuals.com" target="_blank">thirtythree visuals</a></p>
+      <p>Treetop Business Solutions is not a licensed CPA firm but is affiliated with Goss CPA, PLLC, a licensed Oklahoma CPA firm. Treetop Business Solutions, LLC is fully insured. &copy; <span id="footer-copy-year"></span> TREETOP BUSINESS SOLUTIONS, LLC.</p>
+      <p>Created by <a href="branding.html">Treetop Business Solutions</a></p>
     </div>
   </footer>`;
 
@@ -47,6 +47,10 @@
     var placeholder = document.getElementById('site-footer');
     if (placeholder) {
       placeholder.outerHTML = footerHTML;
+      var yearSpan = document.getElementById('footer-copy-year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
     }
   }
 
